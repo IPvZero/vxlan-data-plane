@@ -1,0 +1,12 @@
+---
+ISIS:
+    instance: IPvZero
+    nsap: 49.0001.0000.0000.0002.00
+    level: level-1-2
+    interfaces:
+        ethernet:
+          - e2
+          - e3
+          - e5
+        loo0:
+            ipaddr: 2.2.2.2 255.255.255.255
