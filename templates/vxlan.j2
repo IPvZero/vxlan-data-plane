@@ -1,0 +1,14 @@
+{% if 'VXLAN' in host.facts %}
+{% set vxlan = host.facts.VXLAN %}
+{% for n in vxlan["vlans"] %}
+interface vlan {{ n.vlan }}
+ip address virtual {{ n.svi_ip }}
+{% endfor %}
+no interface vxlan 1
+interface vxlan 1
+vxlan source-interface loopback0
+{% for n in vxlan["vlans"] %}
+vxlan vlan {{ n.vlan }} vni {{ n.vni }}
+{% endfor %}
+vxlan flood vtep{% for target in vxlan.vtep_targets %} {{ target | join }} {% endfor %}
+{% endif %}
