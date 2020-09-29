@@ -1,0 +1,21 @@
+---
+VXLAN:
+  vtep_targets:
+    - 3.3.3.3
+
+  vlans:
+    - vlan: 3
+      svi_ip: 192.168.3.1/24
+      vni: 3000
+
+ISIS:
+    instance: IPvZero
+    nsap: 49.0001.0000.0000.0005.00
+    level: level-1-2
+    interfaces:
+        ethernet:
+          - e4
+          - e5
+
+        loo0:
+            ipaddr: 5.5.5.5 255.255.255.255
