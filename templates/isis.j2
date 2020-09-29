@@ -1,0 +1,25 @@
+{% if 'ISIS' in host.facts %}
+router isis {{ host.facts.ISIS.instance }}
+net {{ host.facts.ISIS.nsap }}
+is-type {{ host.facts.ISIS.level }}
+interface loopback0
+ip address {{ host.facts.ISIS.interfaces.loo0.ipaddr }}
+isis enable IPvZero
+{% set interfaces = host.facts.ISIS.interfaces %}
+{% for key in interfaces %}
+{% if 'ethernet' in key %}
+{% for ether in interfaces[key] %}
+interface {{ ether }}
+no switchport
+no shut
+isis enable IPvZero
+{% endfor %}
+{% elif 'ethernet' not in key %}
+{% for looper in interfaces[key] %}
+interface {{ key }}
+no shut
+isis enable IPvZero
+{% endfor %}
+{% endif %}
+{% endfor %}
+{% endif %}
