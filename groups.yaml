@@ -1,0 +1,13 @@
+---
+
+arista_group:
+  username: john
+  password: cisco
+  platform: 'eos'
+  connection_options:
+    netmiko:
+      extras:  {}
+
+spines: {}
+
+leafs: {}
