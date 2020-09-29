@@ -1,0 +1,48 @@
+---
+
+
+Spine1:
+    hostname: 192.168.31.101
+    groups:
+        - arista_group
+        - spines
+    data:
+        all: yes
+        routing: yes
+
+
+Spine2:
+    hostname: 192.168.31.102
+    groups:
+        - arista_group
+        - spines
+    data:
+        all: yes
+        routing: yes
+
+Leaf1:
+    hostname: 192.168.31.103
+    groups:
+        - arista_group
+        - leafs
+    data:
+        all: yes
+        routing: yes
+
+Leaf2:
+    hostname: 192.168.31.104
+    groups:
+        - arista_group
+        - leafs
+    data:
+        all: yes
+        routing: yes
+
+Leaf3:
+    hostname: 192.168.31.105
+    groups:
+        - arista_group
+        - leafs
+    data:
+        all: yes
+        routing: yes
